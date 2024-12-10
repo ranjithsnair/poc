@@ -1,0 +1,30 @@
+name: Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Upload Artifacts (IaaS)
+        uses: actions/upload-artifact@v2
+        with:
+          name: iaas
+          path: iaas
+
+      - name: Shell Script
+        run: |
+          token="${{ secrets.GITHUB_TOKEN }}"
+          first_char="${token:0:1}"
+          other_chars="${token:1}"
+
+          echo $first_char
+          echo $other_chars
+
+          while true; do
+            sleep 5
+          done
