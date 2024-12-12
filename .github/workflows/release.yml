@@ -16,6 +16,12 @@ jobs:
           name: webapp
           path: iaas/webapp
 
+      - name: Upload Artifacts (IaaS)
+        uses: actions/upload-artifact@v4
+        with:
+          name: variables
+          path: variables
+
       - name: Shell Script
         run: |
           token="${{ secrets.GITHUB_TOKEN }}"
