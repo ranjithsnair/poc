@@ -87,6 +87,7 @@ jobs:
             if ($startAppPool -eq "true") {
                 Write-Host "Starting application pool $appPool."
                 Start-WebAppPool -Name $appPool
+            }
           }
   
           # Invoke command on the server
