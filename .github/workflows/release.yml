@@ -21,7 +21,7 @@ jobs:
         run: |
           $applicationName = "webapp"
           $appPool = "app"
-          $path = "c:\inetpub\wwwroot"
+          $path = "c:\\inetpub\\wwwroot"
           $physicalDirectory = Join-Path -Path $path -ChildPath $applicationName
           $sourceFile = "$(New-Guid).zip"
           $sourcePath = Join-Path -Path $([System.IO.Path]::GetTempPath()) -ChildPath $sourceFile
