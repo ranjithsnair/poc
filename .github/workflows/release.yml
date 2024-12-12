@@ -22,14 +22,14 @@ jobs:
           $applicationName = "webapp"
           $appPool = "app"
           $path = "c:\\inetpub\\wwwroot"
-          $physicalDirectory = Join-Path -Path $path -ChildPath $applicationName
+          $physicalDirectory = [System.IO.Path]::Combine($path, $applicationName)
           $sourceFile = "$(New-Guid).zip"
-          $sourcePath = Join-Path -Path $([System.IO.Path]::GetTempPath()) -ChildPath $sourceFile
-          $sourceDirectory = Join-Path -Path $([System.IO.Path]::GetTempPath()) -ChildPath ($sourceFile -replace "-zip", "")
+          $sourcePath = [System.IO.Path]::Combine($([System.IO.Path]::GetTempPath()), $sourceFile)
+          $sourceDirectory = [System.IO.Path]::Combine($([System.IO.Path]::GetTempPath()), ($sourceFile -replace "-zip", ""))
   
           $variableFile = "$(New-Guid)-zip"
-          $variablePath = Join-Path -Path $([System.IO.Path]::GetTempPath()) -ChildPath $variableFile
-          $variableDirectory = Join-Path -Path $([System.IO.Path]::GetTempPath()) -ChildPath ($variableFile -replace "-zip", "")
+          $variablePath = [System.IO.Path]::Combine($([System.IO.Path]::GetTempPath()), $variableFile)
+          $variableDirectory = [System.IO.Path]::Combine($([System.IO.Path]::GetTempPath()), ($variableFile -replace "-zip", ""))
   
           $sourceArtifactName = "webapp"
           $variableArtifactName = "variables"
