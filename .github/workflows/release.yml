@@ -4,33 +4,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  dev:
+    environment: dev
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Upload Artifacts (IaaS)
-        uses: actions/upload-artifact@v4
-        with:
-          name: webapp
-          path: iaas/webapp
-
-      - name: Upload Artifacts (IaaS)
-        uses: actions/upload-artifact@v4
-        with:
-          name: variables
-          path: variables
-
       - name: Shell Script
         run: |
-          token="${{ secrets.GITHUB_TOKEN }}"
-          first_char="${token:0:1}"
-          other_chars="${token:1}"
-
-          echo $first_char
-          echo $other_chars
-
-          while true; do
-            sleep 5
-          done
+          echo "Welcome"
