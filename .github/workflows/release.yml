@@ -2,6 +2,9 @@ name: Release
 
 on:
   workflow_dispatch:
+  
+env:
+  application: app1
 
 jobs:
   dev:
